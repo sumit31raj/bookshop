@@ -105,3 +105,13 @@ a {
     color-scheme: dark;
   }
 }
+
+
+
+.background-hero {
+  background: url("../../public/bookshelf.jpg");
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(100%) blur(5px) brightness(50%);
+}

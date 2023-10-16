@@ -1,34 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import BookCard from './BookCard'
-import { Book } from '@/types'
-import { Button } from '@mui/material'
+import React, { useEffect, useState } from "react";
+import BookCard from "./BookCard";
+import { Book } from "@/types";
+import { Box, Button } from "@mui/material";
+import { useInfinite } from "@/hooks/useInfinite";
 
-type Props = {}
+type Props = {};
 
 const Booklist = (props: Props) => {
+  const [pageNum, setPagenum] = useState(1);
 
-    const [bookList,setBookList]=useState<Book[]>([])
+  const { loading, error, bookList, hasMore } = useInfinite(pageNum);
 
+  const pageHandler = function () {
+    setPagenum((prev) => prev + 1);
+  };
 
-useEffect(()=>{
+  // console.log(bookList);
 
-    async function fetchBooks(){
-const res= await fetch('https://gutendex.com/books/')
-const data= await res.json()
-
-setBookList(data.results)
-    }
-
-
-    fetchBooks()
-
-},[])
-
-let content= bookList.length > 0 ? bookList.map((book:Book)=>{return <BookCard  id={book.id} key={book.id} title={book.title} author={book?.authors[0]?.name ?? "Unknown Author"} downloadCount={book.download_count}></BookCard>}): <div>Loading...</div>
+  let content =
+    bookList.length > 0 ? (
+      bookList.map((book: Book) => {
+        return (
+          <div key={book.id}>
+            <BookCard
+              id={book.id}
+              title={book.title}
+              author={book?.authors[0]?.name ?? "Unknown Author"}
+              downloadCount={book.download_count}
+            ></BookCard>
+          </div>
+        );
+      })
+    ) : (
+      <div>Loading...</div>
+    );
   return (
-    <><div>{content}</div>
-    <Button>Load More Books</Button></>
-  )
-}
+    <Box>
+      <Box>{content}</Box>
+      <Box>{error && <p>Error</p>}</Box>
+      {loading && "loading"}
+      {hasMore && <Button onClick={pageHandler}>Load More Books</Button>}
+    </Box>
+  );
+};
 
-export default Booklist
+export default Booklist;
