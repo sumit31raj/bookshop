@@ -5,8 +5,11 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import StarIcon from "@mui/icons-material/Star";
 
 import Link from "next/link";
+import { Star } from "@mui/icons-material";
+import { Stack } from "@mui/material";
 
 type BookDescription = {
   id: number;
@@ -17,30 +20,46 @@ type BookDescription = {
 
 const BookCard = (props: BookDescription) => {
   return (
-    <Card sx={{ maxWidth: 400, margin: 10 }}>
+    <Card
+      sx={{
+        maxWidth: 300,
+        margin: 5,
+        color: "#021B3A",
+        backgroundColor: "#CF4307",
+        fontFamily: "Poppins",
+        borderEndEndRadius: 11,
+        borderStartRadius: 11,
+      }}
+    >
       <CardContent>
-        <Typography
-          sx={{ fontSize: 14, alignItems: "center" }}
-          color="text.secondary"
-          gutterBottom
+        <Stack
+          direction="column"
+          gap={2}
+          alignItems="center"
+          justifyContent={"center"}
         >
-          Title:{props.title}
-        </Typography>
-        <span>☆ Add to Favourites</span>
-        <Typography variant="h5" component="div"></Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Author Name : {props.author.split(",").reverse().join(" ")}
-        </Typography>
-        <Typography variant="body2">
-          <br />
-          Download Count : {props.downloadCount}
-        </Typography>
+          <Typography gutterBottom variant="h6">
+            {props.title}
+          </Typography>
+          <Button variant="outlined" color="secondary">
+            <StarIcon></StarIcon>Add to Favourite
+          </Button>
+
+          <Typography>
+            Author(s) : {props.author.split(",").reverse().join(" ")}
+          </Typography>
+          <Typography>Download Count : {props.downloadCount}</Typography>
+        </Stack>
       </CardContent>
       <CardActions>
         <Link
           href={{
             pathname: "/books/[slug]",
             query: { slug: props.id },
+          }}
+          style={{
+            textDecoration: "none",
+            color: "white",
           }}
         >
           Learn More

@@ -6,6 +6,7 @@ import BookCard from "@/components/BookCard";
 import Booklist from "@/components/Booklist";
 import NavBar from "@/components/NavBar";
 import HeroElement from "@/components/HeroElement";
+import Feature from "@/components/Features";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <NavBar></NavBar>
-      </header>
+      <header></header>
       <main className={`${styles.main} ${inter.className}`}>
         <HeroElement></HeroElement>
+        <Feature></Feature>
       </main>
     </>
   );

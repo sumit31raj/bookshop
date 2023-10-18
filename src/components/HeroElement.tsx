@@ -4,13 +4,11 @@ import { Container, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
+import { Box } from "@mui/material";
 
 const HeroElement = () => {
   return (
-    <section
-      style={{ minHeight: "80vh" }}
-      className="container mx-auto flex items-center justify-center"
-    >
+    <Container sx={{ minHeight: "80vh" }}>
       <div>
         <Card>
           <CardMedia
@@ -21,28 +19,47 @@ const HeroElement = () => {
           />
         </Card>
         <div className="flex flex-col items-center gap-10 absolute">
-          <Typography variant="h3" component="h1" className="text-white">
+          <Typography
+            variant="h3"
+            component="h1"
+            color="common.white"
+            padding={8}
+          >
             Outlast Bookshelf: Your Gateway to a World of Stories
           </Typography>
-          <Typography className="text-white">
+          <Typography color="common.white" padding={2}>
             Are you ready to embark on an epic literary journey? At Outlast,
             we're passionate about books, and we're on a mission to bring the
             magic of reading to your doorstep.
           </Typography>
-          <Typography variant="h6" className="text-white">
-            Join TradingFew and start trading today.
+          <Typography
+            variant="h6"
+            color="common.white"
+            padding={2}
+            textAlign={"center"}
+          >
+            Explore Outlast today
           </Typography>
-          <div className="mt-10 flex items-center justify-center gap-6">
-            <Button variant="contained">
-              <Link href="/books"> Explore Books</Link>
-            </Button>
-            <Button variant="outlined">
-              <Link href="#">Learn more →</Link>
-            </Button>
-          </div>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 5,
+            }}
+          >
+            <Link href="/books">
+              <Button variant="contained">Explore Books</Button>
+            </Link>
+            <Link href="#">
+              <Button variant="outlined" color="secondary">
+                Learn more
+              </Button>
+            </Link>
+          </Box>
         </div>
       </div>
-    </section>
+    </Container>
   );
 };
 

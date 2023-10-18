@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
 import { Book } from "@/types";
-import { Box, Button } from "@mui/material";
+import { Box, Button, CircularProgress, LinearProgress } from "@mui/material";
 import { useInfinite } from "@/hooks/useInfinite";
+import Grid from "@mui/material/Unstable_Grid2";
+import ButtonComponent from "./ButtonComponent";
+import CircularProgressComponent from "./CircularLoader";
 
 type Props = {};
 
@@ -19,27 +22,38 @@ const Booklist = (props: Props) => {
 
   let content =
     bookList.length > 0 ? (
-      bookList.map((book: Book) => {
-        return (
-          <div key={book.id}>
+      <Grid container>
+        {bookList.map((book: Book) => (
+          <Grid
+            xs={12}
+            sm={8}
+            md={6}
+            lg={4}
+            key={book.id}
+            sx={{ maxHeight: "100%" }}
+            alignContent={"center"}
+            justifyContent={"center"}
+          >
             <BookCard
               id={book.id}
               title={book.title}
               author={book?.authors[0]?.name ?? "Unknown Author"}
               downloadCount={book.download_count}
             ></BookCard>
-          </div>
-        );
-      })
+          </Grid>
+        ))}
+      </Grid>
     ) : (
-      <div>Loading...</div>
+      <Box>
+        <LinearProgress color="success" />
+      </Box>
     );
   return (
     <Box>
       <Box>{content}</Box>
       <Box>{error && <p>Error</p>}</Box>
-      {loading && "loading"}
-      {hasMore && <Button onClick={pageHandler}>Load More Books</Button>}
+      {loading && <CircularProgressComponent></CircularProgressComponent>}
+      {hasMore && <ButtonComponent onClick={pageHandler}></ButtonComponent>}
     </Box>
   );
 };

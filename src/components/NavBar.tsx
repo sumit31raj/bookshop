@@ -3,36 +3,49 @@ import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import Image from "next/image";
+import styled from "@emotion/styled";
 import NavItems from "@/constants/navigationItems";
 import { NavItem } from "@/types";
-import { imageUrl } from "@/constants/imageUrl";
-import Book from "../../public/Book.jpg";
 
+import MenuBookIcon from "@mui/icons-material/MenuBookOutlined";
+import { Box, Typography } from "@mui/material";
 const NavBar = () => {
+  const StyledToolbar = styled(Toolbar)({
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  });
+
   return (
     <AppBar position="static" color="primary">
-      <Toolbar>
-        <div>
-          <Link href="/">
-            <Image src={Book} alt="logo" width={50} height={50} />
-          </Link>
-        </div>
-        <div>
+      <StyledToolbar>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <MenuBookIcon>
+            <Link href="/"></Link>
+          </MenuBookIcon>
+          <Typography>Outlast</Typography>
+        </Box>
+        <Box>
           <div style={{ display: "flex" }}>
             {NavItems.map((item: NavItem) => (
               <Link key={item.name} href={item.href}>
-                <Button color="inherit">{item.name}</Button>
+                <Button color="secondary">{item.name}</Button>
               </Link>
             ))}
           </div>
-        </div>
-        <div>
+        </Box>
+        <Box>
           <Link href="#" target="_blank">
-            Create an Account
+            <Button color="secondary">Create an Account</Button>
           </Link>
-        </div>
-      </Toolbar>
+        </Box>
+      </StyledToolbar>
     </AppBar>
   );
 };
