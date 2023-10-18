@@ -7,7 +7,7 @@ const NavItems: NavItems = [
     href: "#",
   },
   { name: "Books", href: "books" },
-  { name: "About", href: "#" },
+  { name: "My favourites", href: "#" },
 ];
 
 export default NavItems;

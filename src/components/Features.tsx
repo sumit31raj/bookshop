@@ -10,17 +10,23 @@ import FeatureCard from "./FeatureCard";
 const Feature = () => {
   return (
     <Container maxWidth="xl" sx={{ padding: 10 }}>
-      <Grid
-        container
-        rowSpacing={1}
-        columnGap={5}
-        columnSpacing={{ xs: 1, sm: 2, md: 2 }}
-        justifyContent={"center"}
-      >
-        <FeatureCard></FeatureCard>
-        <FeatureCard></FeatureCard>
-        <FeatureCard></FeatureCard>
-        <FeatureCard></FeatureCard>
+      <Grid container rowGap={5} columnGap={5} justifyContent={"center"}>
+        <FeatureCard
+          featureName="70000+ Books"
+          featureDescription="Book listings with descriptions and author information"
+        ></FeatureCard>
+        <FeatureCard
+          featureName="Recommendations"
+          featureDescription="Suggests books based on  your favourites and preferences."
+        ></FeatureCard>
+        <FeatureCard
+          featureName="Read Free"
+          featureDescription="All the books, in all format, available all the times"
+        ></FeatureCard>
+        <FeatureCard
+          featureName="Let us know"
+          featureDescription="Your feedback allows us to improve our product"
+        ></FeatureCard>
       </Grid>
     </Container>
   );

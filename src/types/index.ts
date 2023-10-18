@@ -24,3 +24,8 @@ export type NavItem = {
 };
 
 export type NavItems = NavItem[];
+
+export type FeatureProps = {
+  featureName: string;
+  featureDescription: string;
+};

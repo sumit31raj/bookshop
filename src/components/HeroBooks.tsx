@@ -47,12 +47,11 @@ export default function HeroBooks(props: MainFeaturedPostProps) {
             fontFamily="Poppins"
             gutterBottom
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. E
+            Meet your next favourite right here on Outlast
           </Typography>
           <Typography variant="h5" color="inherit" paragraph>
-            os a saepe, laborum iste labore veniam? Pariatur quam mollitia
-            distinctio itaque odit sit repellat, commodi quas nam cumque placeat
-            omnis sint!
+            Explore a World of Stories – One Book at a Time Where Every Book is
+            a New Adventure Discover, Read, and Get Lost in Books
           </Typography>
         </Box>
       </Grid>

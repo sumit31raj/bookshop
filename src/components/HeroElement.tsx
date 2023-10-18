@@ -9,16 +9,16 @@ import { Box } from "@mui/material";
 const HeroElement = () => {
   return (
     <Container sx={{ minHeight: "80vh" }}>
-      <div>
+      <Box>
         <Card>
           <CardMedia
             component="img"
             alt="Outlast"
             height="300"
-            image="../../public/bookshelf.jpg"
+            image="/bookshelf.jpg"
           />
         </Card>
-        <div className="flex flex-col items-center gap-10 absolute">
+        <Box className="flex flex-col items-center gap-10 absolute">
           <Typography
             variant="h3"
             component="h1"
@@ -57,8 +57,8 @@ const HeroElement = () => {
               </Button>
             </Link>
           </Box>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Container>
   );
 };

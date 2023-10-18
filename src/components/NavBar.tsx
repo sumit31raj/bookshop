@@ -26,10 +26,18 @@ const NavBar = () => {
             justifyContent: "space-between",
           }}
         >
-          <MenuBookIcon>
-            <Link href="/"></Link>
-          </MenuBookIcon>
-          <Typography>Outlast</Typography>
+          <Link
+            href="/"
+            style={{
+              textDecoration: "none",
+              color: "white",
+              display: "flex",
+              justifyContent: "-moz-initial",
+            }}
+          >
+            <MenuBookIcon></MenuBookIcon>
+            <Typography>Outlast</Typography>{" "}
+          </Link>
         </Box>
         <Box>
           <div style={{ display: "flex" }}>

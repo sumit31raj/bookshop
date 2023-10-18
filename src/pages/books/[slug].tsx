@@ -50,6 +50,7 @@ const Page = (props: Props) => {
         container
         padding={10}
         rowGap={0}
+        justifyContent={"center"}
         sx={{ display: "flex", maxHeight: "100%" }}
       >
         <Grid item xs={12} sm={4} lg={7}>
