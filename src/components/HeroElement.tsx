@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 const HeroElement = () => {
   return (
     <Container sx={{ minHeight: "80vh" }}>
-      <Box>
+      <Box sx={{ padding: 10 }}>
         <Card>
           <CardMedia
             component="img"
