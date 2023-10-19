@@ -23,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header></header>
-      <main className={`${styles.main} ${inter.className}`}>
+      <main className={`${styles.unibg} ${inter.className}`}>
         <HeroElement></HeroElement>
         <Feature></Feature>
       </main>
