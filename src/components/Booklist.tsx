@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import BookCard from "./BookCard";
 import { Book } from "@/types";
 import { Box, Button, CircularProgress, LinearProgress } from "@mui/material";
-import { useInfinite } from "@/hooks/useInfinite";
+
 import Grid from "@mui/material/Unstable_Grid2";
 import ButtonComponent from "./ButtonComponent";
 import CircularProgressComponent from "./CircularLoader";
-
+import { useGetBooksInfinite } from "@/hooks/useGetBooksInfinite";
 const Booklist = () => {
   const [pageNum, setPagenum] = useState(1);
 
-  const { loading, error, bookList, hasMore } = useInfinite(pageNum);
+  const { loading, error, bookList, hasMore } = useGetBooksInfinite(pageNum);
 
   const pageHandler = function () {
     setPagenum((prev) => prev + 1);
@@ -18,7 +18,7 @@ const Booklist = () => {
 
   // console.log(bookList);
 
-  let content =
+  const content =
     bookList.length > 0 ? (
       <Grid container>
         {bookList.map((book: Book) => (

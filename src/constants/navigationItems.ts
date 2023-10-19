@@ -1,4 +1,6 @@
-import { NavItems } from "@/types";
+import { NavItem } from "@/types";
+
+type NavItems = NavItem[];
 
 const NavItems: NavItems = [
   { id: 1, name: "Buy", href: "#" },

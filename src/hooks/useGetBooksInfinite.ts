@@ -2,18 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios, { isCancel } from "axios";
 import { Book } from "@/types";
 
-export const useInfinite = function (page: number) {
+export const useGetBooksInfinite = function (page: number) {
   const [bookList, setBookList] = useState<Book[]>([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const [hasMore, setHasMore] = useState(false);
-  console.log(page + "rendered");
-
-  const resultsPerPage = 32;
-
-  console.log(process.env.NEXT_PUBLIC_API_URL);
 
   useEffect(() => {
     const controller = new AbortController();

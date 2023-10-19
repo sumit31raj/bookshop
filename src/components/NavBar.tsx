@@ -14,7 +14,7 @@ import DrawerElement from "./DrawerElement";
 const NavBar = () => {
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     alignItems: "center",
     color: "white",
   });
@@ -51,6 +51,7 @@ const NavBar = () => {
           <Box
             sx={{
               display: { xs: "none", sm: "flex" },
+              justifyContent: "space-between",
             }}
           >
             {NavItems.map((item: NavItem) => (

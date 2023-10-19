@@ -5,7 +5,11 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { LibraryAddCheckOutlined } from "@mui/icons-material";
-import { FeatureProps } from "@/types";
+
+type FeatureProps = {
+  featureName: string;
+  featureDescription: string;
+};
 
 export default function FeatureCard({
   featureName,
