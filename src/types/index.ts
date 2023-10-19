@@ -4,7 +4,7 @@ export type Author = {
 
 export type Book = {
   authors: Author[];
-
+  bookshelves: string[];
   copyright: boolean;
   download_count: number;
   formats?: { [format: string]: string };
