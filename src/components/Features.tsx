@@ -15,10 +15,7 @@ const Feature = () => {
           featureName="70000+ Books"
           featureDescription="Book listings with descriptions and author information"
         ></FeatureCard>
-        <FeatureCard
-          featureName="Recommendations"
-          featureDescription="Suggests books based on  your favourites and preferences."
-        ></FeatureCard>
+
         <FeatureCard
           featureName="Read Free"
           featureDescription="All the books, in all format, available all the times"

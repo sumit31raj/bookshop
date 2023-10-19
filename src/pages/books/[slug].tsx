@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { Book } from "@/types";
 import Card from "@mui/material/Card";
@@ -11,38 +11,30 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Container, LinearProgress } from "@mui/material";
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import axios from "axios";
 
-type Props = {};
+type PageProps = {
+  book: Book;
+};
 
-const Page = (props: Props) => {
-  const router = useRouter();
-
-  const [book, setBook] = useState<Book>();
+const Page = (props: PageProps) => {
+  const { book } = props;
 
   useEffect(() => {
-    const { slug } = router.query;
-    async function fetchBooks(id: number) {
+    const axiosGetCall = async () => {
       try {
-        const res = await fetch(`https://gutendex.com/books/${id}`);
-        if (res.ok) {
-          const data = await res.json();
-          setBook(data);
-        } else {
-          console.error(
-            "Error fetching book data: ",
-            res.status,
-            res.statusText
-          );
-        }
+        const data = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/143`);
+        // enter you logic when the fetch is successful
+        console.log(`data: `, data);
       } catch (error) {
-        console.error("An error occurred while fetching book data: ", error);
+        // enter your logic for when there is an error (ex. error toast)
+        console.log(`error: `, error);
       }
-    }
+    };
 
-    if (slug) {
-      fetchBooks(+slug); // Use the slug parameter
-    }
-  }, [router.query]);
+    axiosGetCall();
+  }, []);
 
   let content = book ? (
     <Container>
@@ -110,7 +102,39 @@ const Page = (props: Props) => {
     </Box>
   );
 
-  return <>{content}</>;
+  return (
+    <>
+      <Head>
+        <title>{book.title}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
+      {content}
+    </>
+  );
 };
 
 export default Page;
+
+export async function getServerSideProps(context: any) {
+  try {
+    const slug = context.query.slug;
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/${slug}`);
+
+    if (res.status === 200) {
+      const book = res.data;
+      return {
+        props: { book },
+      };
+    } else {
+      console.error("Error fetching book data: ", res.status, res.statusText);
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching book data: ", error);
+  }
+
+  return {
+    props: { book: null }, // Handle the case where data fetching fails
+  };
+}

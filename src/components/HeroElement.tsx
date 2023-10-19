@@ -24,6 +24,7 @@ const HeroElement = () => {
             component="h1"
             color="common.white"
             padding={8}
+            sx={{ fontSize: { xs: 24, lg: 30 } }}
           >
             Outlast Bookshelf: Your Gateway to a World of Stories
           </Typography>
@@ -45,6 +46,7 @@ const HeroElement = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              flexDirection: { xs: "column", lg: "row" },
               gap: 5,
             }}
           >

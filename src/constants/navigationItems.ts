@@ -1,13 +1,14 @@
 import { NavItems } from "@/types";
 
 const NavItems: NavItems = [
-  { name: "Buy", href: "#" },
+  { id: 1, name: "Buy", href: "#" },
   {
+    id: 2,
     name: "Rent",
     href: "#",
   },
-  { name: "Books", href: "books" },
-  { name: "My favourites", href: "#" },
+  { id: 3, name: "Books", href: "books" },
+  { id: 4, name: "My favourites", href: "/favourites" },
 ];
 
 export default NavItems;

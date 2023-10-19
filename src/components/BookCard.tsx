@@ -23,7 +23,8 @@ const BookCard = (props: BookDescription) => {
     <Card
       sx={{
         maxWidth: 300,
-        margin: 5,
+        margin: { xs: "0 auto", sm: 5 },
+
         color: "#021B3A",
         backgroundColor: "#CF4307",
         fontFamily: "Poppins",
@@ -37,8 +38,9 @@ const BookCard = (props: BookDescription) => {
           gap={2}
           alignItems="center"
           justifyContent={"center"}
+          fontFamily={"Poppins"}
         >
-          <Typography gutterBottom variant="h6">
+          <Typography gutterBottom variant="h6" fontWeight={700}>
             {props.title}
           </Typography>
           <Button variant="outlined" color="secondary">

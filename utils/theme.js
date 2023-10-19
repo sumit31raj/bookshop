@@ -14,6 +14,8 @@ export const theme = createTheme({
     },
   },
   typography:{
-    fontFamily:""
+    fontFamily:{
+      main:"Poppins"
+    }
   }
 });

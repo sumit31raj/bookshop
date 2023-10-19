@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,11 +9,14 @@ import { NavItem } from "@/types";
 
 import MenuBookIcon from "@mui/icons-material/MenuBookOutlined";
 import { Box, Typography } from "@mui/material";
+import DrawerElement from "./DrawerElement";
+
 const NavBar = () => {
   const StyledToolbar = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    color: "white",
   });
 
   return (
@@ -21,7 +24,7 @@ const NavBar = () => {
       <StyledToolbar>
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", sm: "flex" },
             alignItems: "center",
             justifyContent: "space-between",
           }}
@@ -40,13 +43,22 @@ const NavBar = () => {
           </Link>
         </Box>
         <Box>
-          <div style={{ display: "flex" }}>
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            <DrawerElement></DrawerElement>
+          </Box>
+        </Box>
+        <Box>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+            }}
+          >
             {NavItems.map((item: NavItem) => (
               <Link key={item.name} href={item.href}>
                 <Button color="secondary">{item.name}</Button>
               </Link>
             ))}
-          </div>
+          </Box>
         </Box>
         <Box>
           <Link href="#" target="_blank">

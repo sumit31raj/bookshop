@@ -13,6 +13,8 @@ export const useInfinite = function (page: number) {
 
   const resultsPerPage = 32;
 
+  console.log(process.env.NEXT_PUBLIC_API_URL);
+
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -20,7 +22,7 @@ export const useInfinite = function (page: number) {
     async function fetchBooks() {
       try {
         const res = await axios.get(
-          `https://gutendex.com/books/?page=${page}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/?page=${page}`,
           {
             signal: controller.signal,
           }

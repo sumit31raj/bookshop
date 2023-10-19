@@ -7,9 +7,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import ButtonComponent from "./ButtonComponent";
 import CircularProgressComponent from "./CircularLoader";
 
-type Props = {};
-
-const Booklist = (props: Props) => {
+const Booklist = () => {
   const [pageNum, setPagenum] = useState(1);
 
   const { loading, error, bookList, hasMore } = useInfinite(pageNum);
@@ -31,7 +29,6 @@ const Booklist = (props: Props) => {
             lg={4}
             key={book.id}
             sx={{ maxHeight: "100%" }}
-            alignContent={"center"}
             justifyContent={"center"}
           >
             <BookCard
