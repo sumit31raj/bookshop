@@ -21,21 +21,6 @@ type PageProps = {
 const Page = (props: PageProps) => {
   const { book } = props;
 
-  useEffect(() => {
-    const axiosGetCall = async () => {
-      try {
-        const data = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/143`);
-        // enter you logic when the fetch is successful
-        console.log(`data: `, data);
-      } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
-        console.log(`error: `, error);
-      }
-    };
-
-    axiosGetCall();
-  }, []);
-
   let content = book ? (
     <Container>
       <Grid

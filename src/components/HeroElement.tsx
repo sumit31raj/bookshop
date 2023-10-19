@@ -29,8 +29,8 @@ const HeroElement = () => {
             Outlast Bookshelf: Your Gateway to a World of Stories
           </Typography>
           <Typography color="common.white" padding={2}>
-            Are you ready to embark on an epic literary journey? At Outlast,
-            we're passionate about books, and we're on a mission to bring the
+            Are you ready to embark on an epic literary journey? At Outlast, we
+            are passionate about books, and we are on a mission to bring the
             magic of reading to your doorstep.
           </Typography>
           <Typography
