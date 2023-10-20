@@ -1,10 +1,10 @@
+import { Box } from "@mui/material";
 import React from "react";
-import "@/styles/globals.css";
 
 type Props = {};
 
 const index = (props: Props) => {
-  return <div>index</div>;
+  return <Box>index</Box>;
 };
 
 export default index;
