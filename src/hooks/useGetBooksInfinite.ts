@@ -16,14 +16,11 @@ export const useGetBooksInfinite = function (page: number) {
     setError(false);
     async function fetchBooks() {
       try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/?page=${page}`,
-          {
-            signal: controller.signal,
-          }
-        );
-        // For subsequent pages, add new items to the existing list
-
+        const res = await axios({
+          url: `${process.env.NEXT_PUBLIC_API_URL}/?page=${page}`,
+          method: "GET",
+          signal: controller.signal,
+        });
         const results = res.data.results;
         setBookList((prev) => [...prev, ...results]);
         setHasMore(res.data.count > bookList.length);

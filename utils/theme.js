@@ -13,9 +13,9 @@ export const theme = createTheme({
       main: "#999",
     },
   },
-  typography:{
-    fontFamily:{
-      main:"Poppins"
-    }
-  }
+  typography: {
+    fontFamily: {
+      main: "Poppins",
+    },
+  },
 });

@@ -20,6 +20,8 @@ type PageProps = {
 const Page = (props: PageProps) => {
   const { book } = props;
 
+  console.log(book);
+
   let content = book ? (
     <Container>
       <Grid
