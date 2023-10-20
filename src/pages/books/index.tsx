@@ -3,6 +3,7 @@ import HeroBooks from "@/components/HeroBooks";
 import { Container } from "@mui/material";
 import React from "react";
 import Head from "next/head";
+import "@/styles/globals.css";
 
 type Props = {};
 
