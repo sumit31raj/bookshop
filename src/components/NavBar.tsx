@@ -1,74 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import styled from "@emotion/styled";
-import NavItems from "@/constants/navigationItems";
-import { NavItem } from "@/types";
+import BookIcon from '@mui/icons-material/Book';
+import Typography from "@mui/material/Typography";
 
-import MenuBookIcon from "@mui/icons-material/MenuBookOutlined";
-import { Box, Typography } from "@mui/material";
-import DrawerElement from "./DrawerElement";
-
-const NavBar = () => {
-  const StyledToolbar = styled(Toolbar)({
-    display: "flex",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    color: "white",
-  });
-
-  return (
-    <AppBar position="static" color="primary">
-      <StyledToolbar>
-        <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              textDecoration: "none",
-              color: "white",
-              display: "flex",
-              justifyContent: "-moz-initial",
-            }}
-          >
-            <MenuBookIcon></MenuBookIcon>
-            <Typography>Outlast</Typography>{" "}
-          </Link>
-        </Box>
-        <Box>
-          <Box sx={{ display: { xs: "block", sm: "none" } }}>
-            <DrawerElement></DrawerElement>
-          </Box>
-        </Box>
-        <Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              justifyContent: "space-between",
-            }}
-          >
-            {NavItems.map((item: NavItem) => (
-              <Link key={item.name} href={item.href}>
-                <Button color="secondary">{item.name}</Button>
-              </Link>
-            ))}
-          </Box>
-        </Box>
-        <Box>
-          <Link href="#" target="_blank">
-            <Button color="secondary">Create an Account</Button>
-          </Link>
-        </Box>
-      </StyledToolbar>
-    </AppBar>
-  );
-};
+const NavBar = () => (
+  <AppBar position="relative">
+    <Toolbar>
+      <BookIcon sx={{ mr: 2 }} />
+      <Typography variant="h6" color="inherit" noWrap>
+        Bookshop
+      </Typography>
+    </Toolbar>
+  </AppBar>
+);
 
 export default NavBar;
